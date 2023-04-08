@@ -113,7 +113,7 @@ public class DW {
             System.out.println("         *** Iteration " + iter + " starts***");
 
             subProblem.optimize();
-            subProblem.write("subProblem.lp");
+            // subProblem.write("subProblem.lp");
             if(subProblem.get(GRB.DoubleAttr.ObjVal) >= -1e-6){
                 System.out.println("无新的列生成，无检验数为负");
                 break;
@@ -127,7 +127,7 @@ public class DW {
                 var_lambda.add(RMP.addVar(0,GRB.INFINITY,0,GRB.CONTINUOUS,col,"lambda" + iter));
 
                 RMP.optimize();
-                RMP.write("RMP.lp");
+                // RMP.write("RMP.lp");
                 if(RMP.get(GRB.DoubleAttr.ObjVal) <= 1e-6){
                     System.out.println("------------------Phase 1 ends------------------");
                     break;
